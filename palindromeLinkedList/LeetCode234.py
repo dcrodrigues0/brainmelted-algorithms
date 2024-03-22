@@ -20,9 +20,4 @@ class Solution:
             head = head.next
         return arr[::-1] == arr
 
-solution = Solution()
-palindromeTrue = ListNode(1, ListNode(2,ListNode(1)))
-palindromeFalse = ListNode(1, ListNode(2,ListNode(2)))
-print(solution.isPalindrome(palindromeTrue))
-print(solution.isPalindrome(palindromeFalse))
 # This solutions offers 282 ms of runtime.
