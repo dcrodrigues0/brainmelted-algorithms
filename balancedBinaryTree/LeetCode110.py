@@ -1,4 +1,4 @@
-# Leet Code 110. Definition for a binary tree node.
+# Definition for a binary tree node.
 
 from typing import Optional
 
@@ -13,7 +13,7 @@ class Solution:
         
         def dfs(root):
             if root is None:
-                return [True, 0] # true means that there is no more to traverse, and 0 means that achieve the most depht node in direction
+                return [True, 0] # true means that there is no more to traverse, and 0 means that achieve the most depht node in
 
             right = dfs(root.right) # Traversing the nodes in right
             left = dfs(root.left) # Traversing the nodes in left
@@ -23,7 +23,4 @@ class Solution:
             
             return [balanced, 1 + max(right[1], left[1])]
 
-        return dfs(root)[0]
-
-# This solutions offers 46 ms of runtime.
-    
+        return dfs(root)[0]    

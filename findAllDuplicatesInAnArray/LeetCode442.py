@@ -5,8 +5,9 @@ class Solution:
             return []
 
         duplicateds = []
-        nums.sort()
+        nums.sort() #it's possible change this sort, to any other sort algorithm(bubble, counting, select, merge...)
         for i in range(len(nums) - 1):
             if(nums[i] == nums[i+1]):
                 duplicateds.append(nums[i])
         return duplicateds
+        
