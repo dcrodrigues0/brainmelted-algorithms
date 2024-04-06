@@ -1,6 +1,9 @@
 # LeetCode 111. Minimum depth of Binary Tree
 
 # Definition for a binary tree node.
+from typing import Optional
+
+
 class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -24,3 +27,6 @@ class Solution:
             return min(left_depth, right_depth) + 1
 
         return dfs(root)
+    
+tree = TreeNode(2, None, TreeNode(3, None, TreeNode(4, None, TreeNode(5, None, TreeNode(6, None, None)))))
+Solution().minDepth(tree)
