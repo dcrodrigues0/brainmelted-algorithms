@@ -1,24 +1,32 @@
-#  Leet Code 111. Minimum Depth of Binary Tree
+# LeetCode 111. Minimum depth of Binary Tree
 
+from typing import Optional
 
+# Definition for a binary tree node.
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
+     def __init__(self, val=0, left=None, right=None):
+         self.val = val
+         self.left = left
+         self.right = right
+         
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
-            return root
+            return 0
 
-        def dfs(root):
-            if root is None:
-                return 0
+        def dfs(node):
+            if node is None:
+                return float('inf')
+
+            if node.left is None and node.right is None:
+                return 1
+
+            left_depth = dfs(node.left)
+            right_depth = dfs(node.right)
             
-            right = dfs(root.right)
-            left = dfs(root.left)
+            return min(left_depth, right_depth) + 1
 
-            return 1 + max(right, left)
-        
         return dfs(root)
+    
+tree = TreeNode(2, None, TreeNode(3, None, TreeNode(4, None, TreeNode(5, None, TreeNode(6, None, None)))))
+Solution().minDepth(tree)
